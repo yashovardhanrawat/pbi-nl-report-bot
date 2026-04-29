@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtualenvs
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Generated reports — re-generated on demand
+reports_out/
+
+# Power BI cache (local-only)
+*.pbi/cache.abf
+
+# OS
+.DS_Store
+Thumbs.db

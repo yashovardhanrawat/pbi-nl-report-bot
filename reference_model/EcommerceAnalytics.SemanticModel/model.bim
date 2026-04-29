@@ -1,0 +1,422 @@
+{
+  "compatibilityLevel": 1605,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"fact_sales\",\"dim_product\",\"dim_date\",\"dim_geography\",\"dim_channel\",\"revenue_by_product\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "fact_sales_dim_product",
+        "fromColumn": "product_id",
+        "fromTable": "fact_sales",
+        "toColumn": "product_id",
+        "toTable": "dim_product"
+      },
+      {
+        "name": "fact_sales_dim_date",
+        "fromColumn": "date",
+        "fromTable": "fact_sales",
+        "toColumn": "date",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "fact_sales_dim_geography",
+        "fromColumn": "region",
+        "fromTable": "fact_sales",
+        "toColumn": "region",
+        "toTable": "dim_geography"
+      },
+      {
+        "name": "fact_sales_dim_channel",
+        "fromColumn": "channel",
+        "fromTable": "fact_sales",
+        "toColumn": "channel",
+        "toTable": "dim_channel"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "fact_sales",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "lineageTag": "183533e1-4162-4120-a807-26c8f2b75e0f",
+            "sourceColumn": "date"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "8691e130-5b80-4aa1-ac28-465f1dd4f3da",
+            "sourceColumn": "product_id"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "cd94f507-0fd1-4408-a298-ea976a37a039",
+            "sourceColumn": "product_name"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "lineageTag": "8ed4539c-c063-46de-9cf9-e136abe94d80",
+            "sourceColumn": "category"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "lineageTag": "e0f48d7b-a7c2-4175-9a63-77ca309283dc",
+            "sourceColumn": "region"
+          },
+          {
+            "name": "channel",
+            "dataType": "string",
+            "lineageTag": "f62c0520-f5e9-4429-a234-fddc915fdfb5",
+            "sourceColumn": "channel"
+          },
+          {
+            "name": "price",
+            "dataType": "int64",
+            "lineageTag": "c2f46183-5c71-43f9-b5a2-0b7d2c1ad5f1",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "units_sold",
+            "dataType": "int64",
+            "lineageTag": "50c5392c-42a2-45be-aaaa-9d7f8dea6b63",
+            "sourceColumn": "units_sold"
+          },
+          {
+            "name": "revenue",
+            "dataType": "int64",
+            "lineageTag": "14cfd8a8-ec6f-4db1-9318-e5f2237c11d3",
+            "sourceColumn": "revenue"
+          },
+          {
+            "name": "discount",
+            "dataType": "int64",
+            "lineageTag": "4d644dec-6f42-4612-a8a9-14f5e2d838e8",
+            "sourceColumn": "discount"
+          },
+          {
+            "name": "net_revenue",
+            "dataType": "int64",
+            "lineageTag": "f335ec15-f761-45df-9879-90201482c07e",
+            "sourceColumn": "net_revenue"
+          },
+          {
+            "name": "returns",
+            "dataType": "int64",
+            "lineageTag": "4c0f94a9-a382-414d-9f7d-1c8347422506",
+            "sourceColumn": "returns"
+          },
+          {
+            "name": "net_profit",
+            "dataType": "double",
+            "lineageTag": "64ecbb19-caed-486b-82ba-ea16151115c3",
+            "sourceColumn": "net_profit"
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "lineageTag": "0966812a-ab06-4ccb-b096-0743e8efee64",
+            "sourceColumn": "year"
+          },
+          {
+            "name": "month",
+            "dataType": "int64",
+            "lineageTag": "a26b58a0-89a8-4f39-93c9-0cd5b915798e",
+            "sourceColumn": "month"
+          },
+          {
+            "name": "quarter",
+            "dataType": "int64",
+            "lineageTag": "04e26fd0-58d8-41f7-b830-b13cc940e7a2",
+            "sourceColumn": "quarter"
+          },
+          {
+            "name": "discount_pct",
+            "dataType": "double",
+            "lineageTag": "6e66c0fa-bd63-477e-ad3f-0898d45f1ffe",
+            "sourceColumn": "discount_pct"
+          },
+          {
+            "name": "profit_margin_pct",
+            "dataType": "double",
+            "lineageTag": "515d3cbf-333f-40eb-b666-ec0f60c01199",
+            "sourceColumn": "profit_margin_pct"
+          },
+          {
+            "name": "return_flag",
+            "dataType": "string",
+            "lineageTag": "6650de68-27f8-41f6-8f66-7e3dae1dc10a",
+            "sourceColumn": "return_flag"
+          }
+        ],
+        "lineageTag": "254536ed-5a77-44d1-8297-19fa37ef80f7",
+        "measures": [
+          {
+            "name": "Total Revenue",
+            "expression": "SUM(fact_sales[revenue])",
+            "lineageTag": "b80754f8-9527-4a87-858e-167a2b7f3b4d"
+          },
+          {
+            "name": "Total Net Revenue",
+            "expression": "SUM(fact_sales[net_revenue])",
+            "lineageTag": "c9a59ddf-45f3-4522-b6b5-501c2f442768"
+          },
+          {
+            "name": "Total Net Profit",
+            "expression": "SUM(fact_sales[net_profit])",
+            "lineageTag": "747fc106-6fb4-48f7-85cb-43581afa3402"
+          },
+          {
+            "name": "Total Units Sold",
+            "expression": "SUM(fact_sales[units_sold])",
+            "lineageTag": "11d175e2-f1e5-45c9-8f60-e4c84f5101c2"
+          },
+          {
+            "name": "Total Discount",
+            "expression": "SUM(fact_sales[discount])",
+            "lineageTag": "9cd693eb-d6eb-442a-a585-35a71cb6a4d1"
+          },
+          {
+            "name": "Total Returns",
+            "expression": "SUM(fact_sales[returns])",
+            "lineageTag": "8670001a-15bc-468c-98ae-402d80a87686"
+          },
+          {
+            "name": "Profit Margin %",
+            "expression": "DIVIDE(SUM(fact_sales[net_profit]),SUM(fact_sales[revenue]),0)*100",
+            "lineageTag": "9f8d6693-4726-4a65-bb51-e24e98a5dcb9"
+          },
+          {
+            "name": "Discount Rate %",
+            "expression": "DIVIDE(SUM(fact_sales[discount]),SUM(fact_sales[revenue]),0)*100",
+            "lineageTag": "167c38dc-cf1e-4377-a90e-b82657a53429"
+          },
+          {
+            "name": "Return Rate %",
+            "expression": "DIVIDE(SUM(fact_sales[returns]),SUM(fact_sales[units_sold]),0)*100",
+            "lineageTag": "c1e7054b-2efe-4030-99f6-5b1d4972072c"
+          },
+          {
+            "name": "Avg Revenue per Unit",
+            "expression": "DIVIDE(SUM(fact_sales[revenue]),SUM(fact_sales[units_sold]),0)",
+            "lineageTag": "de21e43e-447a-41f2-8f3d-5c1e01c7b71b"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_sales",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT date, product_id, product_name, category, region, channel, price, units_sold, revenue, discount, net_revenue, returns, net_profit, YEAR(date) AS year, MONTH(date) AS month, DATEPART(QUARTER, date) AS quarter, CAST(CASE WHEN revenue = 0 THEN 0 ELSE CAST(discount AS FLOAT) / revenue END AS FLOAT) AS discount_pct, CAST(CASE WHEN revenue = 0 THEN 0 ELSE CAST(net_profit AS FLOAT) / revenue END AS FLOAT) AS profit_margin_pct, CASE WHEN returns > 0 THEN 'Returned' ELSE 'No Return' END AS return_flag FROM dbo.fact_sales\", null, [EnableFolding=false])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_product",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "isKey": true,
+            "lineageTag": "647bd9d0-7627-42cd-9f27-8279eb7e0530",
+            "sourceColumn": "product_id"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "031ca7ec-fc4a-44ca-a84a-ed49ef447156",
+            "sourceColumn": "product_name"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "lineageTag": "d1c3f3d4-288f-4c79-b5b2-fad62fa2cfd4",
+            "sourceColumn": "category"
+          },
+          {
+            "name": "price",
+            "dataType": "int64",
+            "lineageTag": "39dd5a1e-0ac0-48fd-b48c-265b69d1b6b9",
+            "sourceColumn": "price"
+          }
+        ],
+        "lineageTag": "8336b7a1-8cf0-4cf7-b71f-e8b0225a0875",
+        "partitions": [
+          {
+            "name": "dim_product",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT * FROM dbo.dim_product\", null, [EnableFolding=true])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_date",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "lineageTag": "1a09639f-cd46-4500-b3f2-bd77394256fe",
+            "sourceColumn": "date"
+          },
+          {
+            "name": "year",
+            "dataType": "int64",
+            "lineageTag": "af2db551-a7a8-44bd-8f6c-5bdd987da16f",
+            "sourceColumn": "year"
+          },
+          {
+            "name": "month",
+            "dataType": "int64",
+            "lineageTag": "206a8a3e-b0dd-403d-a15b-6435d817240f",
+            "sourceColumn": "month"
+          },
+          {
+            "name": "quarter",
+            "dataType": "int64",
+            "lineageTag": "61615cc1-1d80-491c-b873-70c62d10444d",
+            "sourceColumn": "quarter"
+          }
+        ],
+        "lineageTag": "a66f8d6a-22d7-4c15-9d56-40ea4b13fbf1",
+        "partitions": [
+          {
+            "name": "dim_date",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT * FROM dbo.dim_date\", null, [EnableFolding=true])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_geography",
+        "columns": [
+          {
+            "name": "region",
+            "dataType": "string",
+            "isKey": true,
+            "lineageTag": "efb6f8d8-cbcd-4dcf-ba5f-9d5a5c5c0d1a",
+            "sourceColumn": "region"
+          },
+          {
+            "name": "region_code",
+            "dataType": "string",
+            "lineageTag": "9be1ed3b-bd13-46d3-828f-1a7a4dce7f31",
+            "sourceColumn": "region_code"
+          }
+        ],
+        "lineageTag": "7d111582-4fe6-4b3a-90f0-29e76d2a970f",
+        "partitions": [
+          {
+            "name": "dim_geography",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT * FROM dbo.dim_geography\", null, [EnableFolding=true])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_channel",
+        "columns": [
+          {
+            "name": "channel",
+            "dataType": "string",
+            "isKey": true,
+            "lineageTag": "846a074a-a35d-4e95-9c44-bd683f659b73",
+            "sourceColumn": "channel"
+          }
+        ],
+        "lineageTag": "12f90d84-f099-42cf-9a08-3f0f78047c26",
+        "partitions": [
+          {
+            "name": "dim_channel",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT * FROM dbo.dim_channel\", null, [EnableFolding=true])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "revenue_by_product",
+        "columns": [
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "1ad21a1c-a896-4512-a9a4-7620a7807709",
+            "sourceColumn": "product_name"
+          },
+          {
+            "name": "total_revenue",
+            "dataType": "int64",
+            "lineageTag": "b65479ba-3ba3-4d7f-b0fe-2d69531b9be4",
+            "sourceColumn": "total_revenue"
+          }
+        ],
+        "lineageTag": "30f8f731-77ae-43d5-b3c1-568861561790",
+        "partitions": [
+          {
+            "name": "revenue_by_product",
+            "source": {
+              "expression": [
+                "let",
+                "    Source    = Sql.Database(\"rcmgynklls5uvnpwnp7i3pdp3m-dvonkn4fn6lu7p6hoyzoit2bja.datawarehouse.fabric.microsoft.com\", \"NoVol_Project\", [CreateNavigationProperties=false]),",
+                "    SqlResult = Value.NativeQuery(Source, \"SELECT dp.product_name, SUM(fs.revenue) AS total_revenue FROM dbo.fact_sales fs JOIN dbo.dim_product dp ON fs.product_id = dp.product_id JOIN dbo.dim_date dd ON fs.date = dd.date WHERE dd.year = YEAR(GETDATE()) - 1 GROUP BY dp.product_name\", null, [EnableFolding=true])",
+                "in  SqlResult"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

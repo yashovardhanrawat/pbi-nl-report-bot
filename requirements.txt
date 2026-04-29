@@ -1,0 +1,19 @@
+# Core
+python-dotenv>=1.0.1
+pydantic>=2.7
+
+# Azure / Power BI auth
+azure-identity>=1.17
+requests>=2.32
+
+# LLM + agent framework
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-groq>=0.2.0
+langgraph>=0.2.40
+
+# Fabric SQL endpoint validation (T-SQL)
+pyodbc>=5.1.0           # requires the Microsoft ODBC Driver 18 for SQL Server installed on the host
+
+# Convenience
+rich>=13.7.0            # nicer CLI output (optional)
