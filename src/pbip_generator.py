@@ -115,10 +115,16 @@ def _pbism() -> dict:
         "settings": {},
     }
 
-
 def _report_root() -> dict:
     return {
         "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+        "themeCollection": {
+            "baseTheme": {
+                "name": "CY24SU06",
+                "version": "5.58",
+                "type": "SharedResources",
+            }
+        },
         "objects": {
             "section": [
                 {
