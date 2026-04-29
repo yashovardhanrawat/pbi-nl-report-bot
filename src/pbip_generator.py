@@ -37,6 +37,7 @@ import hashlib
 import json
 import re
 import secrets
+import uuid
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -85,7 +86,7 @@ def _platform_payload(item_type: str, display_name: str) -> dict:
         },
         "config": {
             "version": "2.0",
-            "logicalId": _hex_id(display_name),
+            "logicalId": str(uuid.uuid4()),
         },
     }
 
