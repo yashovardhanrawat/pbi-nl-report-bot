@@ -121,7 +121,7 @@ def _report_root() -> dict:
         "themeCollection": {
             "baseTheme": {
                 "name": "CY24SU06",
-                "reportVersionAtImport": "5.58",
+                "reportVersionAtImport": 5.58,
                 "type": "SharedResources",
             }
         },
