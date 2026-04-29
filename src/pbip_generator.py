@@ -117,11 +117,11 @@ def _pbism() -> dict:
 
 def _report_root() -> dict:
     return {
-        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.1.0/schema.json",
+        "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.0.0/schema.json",
         "themeCollection": {
             "baseTheme": {
                 "name": "CY24SU06",
-                "reportVersionAtImport": 5.58,
+                "reportVersionAtImport": "5.55",
                 "type": "SharedResources",
             }
         },
@@ -134,6 +134,7 @@ def _report_root() -> dict:
                 }
             ]
         },
+        "layoutOptimization": "None",
         "settings": {
             "useStylableVisualContainerHeader": True,
             "exportDataMode": "AllowSummarized",
@@ -143,7 +144,6 @@ def _report_root() -> dict:
             "useDefaultAggregateDisplayName": True,
         },
     }
-
 
 def _version_meta() -> dict:
     return {
