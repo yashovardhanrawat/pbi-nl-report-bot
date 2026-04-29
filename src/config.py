@@ -32,6 +32,10 @@ class Settings:
     reports_out_dir: Path
     templates_dir: Path
 
+    # LangSmith
+    langsmith_tracing: bool
+    langsmith_project: str
+
 
 def _required(name: str) -> str:
     val = os.getenv(name)
@@ -43,7 +47,30 @@ def _required(name: str) -> str:
     return val
 
 
+def _setup_langsmith() -> None:
+    """Configure LangSmith tracing if env vars are present."""
+    if os.getenv("LANGCHAIN_TRACING_V2", "").lower() == "true":
+        api_key = os.getenv("LANGCHAIN_API_KEY", "")
+        if not api_key:
+            import warnings
+            warnings.warn(
+                "LANGCHAIN_TRACING_V2=true but LANGCHAIN_API_KEY is not set. "
+                "Tracing will be disabled.",
+                stacklevel=2,
+            )
+            os.environ["LANGCHAIN_TRACING_V2"] = "false"
+        else:
+            # Ensure the endpoint is set
+            if not os.getenv("LANGCHAIN_ENDPOINT"):
+                os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
+            print(
+                f"[LangSmith] Tracing enabled → project: "
+                f"{os.getenv('LANGCHAIN_PROJECT', 'default')}"
+            )
+
+
 def load_settings() -> Settings:
+    _setup_langsmith()
     return Settings(
         groq_api_key=_required("GROQ_API_KEY"),
         groq_model=os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile"),
@@ -60,6 +87,8 @@ def load_settings() -> Settings:
         ),
         reports_out_dir=PROJECT_ROOT / os.getenv("REPORTS_OUT_DIR", "reports_out"),
         templates_dir=PROJECT_ROOT / "templates",
+        langsmith_tracing=os.getenv("LANGCHAIN_TRACING_V2", "false").lower() == "true",
+        langsmith_project=os.getenv("LANGCHAIN_PROJECT", "pbi-langchain-poc"),
     )
 
 

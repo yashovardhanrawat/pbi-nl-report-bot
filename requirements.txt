@@ -17,3 +17,5 @@ pyodbc>=5.1.0           # requires the Microsoft ODBC Driver 18 for SQL Server i
 
 # Convenience
 rich>=13.7.0            # nicer CLI output (optional)
+#Tracing
+langsmith>=0.1.0
